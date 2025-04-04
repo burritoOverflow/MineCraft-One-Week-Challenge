@@ -1,3 +1,8 @@
 {
-  "dependencies": ["glm", "sfml"]
+  "dependencies": [
+    "glm",
+    "imgui-sfml",
+    "sfml",
+    "glad"
+  ]
 }

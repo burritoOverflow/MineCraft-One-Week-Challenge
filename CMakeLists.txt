@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 
 project(
-    mc-one-week-challenge 
+    mc-one-week-challenge
     VERSION 1.0
 )
 
@@ -85,16 +85,15 @@ endif()
 
 find_package(glm CONFIG REQUIRED)
 find_package(SFML COMPONENTS system audio network window graphics CONFIG REQUIRED)
-
-add_subdirectory(deps)
-target_include_directories(
-    ${PROJECT_NAME}
-    PRIVATE
-    deps
-)
+find_package(ImGui-SFML CONFIG REQUIRED)
+find_package(glad CONFIG REQUIRED)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
     sfml-system sfml-audio sfml-network sfml-graphics sfml-window
     glm::glm
-    glad 
+    glad::glad
+)
+
+target_link_libraries(${PROJECT_NAME} PRIVATE
+    ImGui-SFML::ImGui-SFML
 )
